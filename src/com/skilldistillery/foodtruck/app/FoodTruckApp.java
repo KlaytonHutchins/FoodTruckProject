@@ -66,12 +66,19 @@ public class FoodTruckApp {
 			}
 			case 3: {
 				int highestRatedIndex = 0;
+				int highestRatedValue = foodTrucks[0].getTruckRating();
 				for (int i = 0; i < foodTrucks.length; i++) {
 					if (foodTrucks[i].getTruckRating() > foodTrucks[highestRatedIndex].getTruckRating()) {
 						highestRatedIndex = i;
+						highestRatedValue = foodTrucks[i].getTruckRating();
 					}
 				}
-				System.out.println("Highest Rated Truck:\n" + foodTrucks[highestRatedIndex]);
+				System.out.println("Highest Rated Truck:\n");
+				for (int i = 0; i < foodTrucks.length; i++) {
+					if (foodTrucks[i].getTruckRating() == highestRatedValue) {
+						System.out.println(foodTrucks[i]);
+					}
+				}
 				break;
 			}
 			case 4: {
