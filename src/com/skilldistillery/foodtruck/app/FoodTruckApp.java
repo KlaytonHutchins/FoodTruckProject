@@ -9,45 +9,12 @@ public class FoodTruckApp {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 
-		FoodTruck[] fullTruckArr = new FoodTruck[5];
-		int lengthFinalArray = 0;
-		
-		for (int i = 0; i < 5; i++) {
-			System.out.print("Enter Food Truck Name: ");
-			String currentTruckName = sc.next();
-			if (currentTruckName.equals("quit")) {
-				lengthFinalArray = i;
-				break;
-			}
-
-			System.out.print("Enter type of food for this Food Truck: ");
-			String currentFoodType = sc.next();
-
-			System.out.print("Enter Food Truck's Rating (1-5): ");
-			int currentTruckRating = sc.nextInt();
-			while (currentTruckRating < 1 || currentTruckRating > 5) {
-				currentTruckRating = sc.nextInt();
-			}
-
-			FoodTruck truck = new FoodTruck(currentTruckName, currentFoodType, currentTruckRating);
-			fullTruckArr[i] = truck;
-		}
-		
-		FoodTruck[] foodTrucks = new FoodTruck[lengthFinalArray];
-		for (int i = 0; i < lengthFinalArray; i++) {
-			foodTrucks[i] = fullTruckArr[i];
-		}
+		FoodTruckApp fta = new FoodTruckApp();
+		FoodTruck[] foodTrucks = fta.gatherFoodTrucks();
 		
 		boolean stillChoosingFromMenu = true;
 		while (stillChoosingFromMenu) {
-			System.out.println("\n--------------------------------------------");
-			System.out.println("Please enter a number 1-4 for the following:");
-			System.out.println("1. List all existing food trucks.");
-			System.out.println("2. See the average rating of food trucks.");
-			System.out.println("3. Display the highest-rated food truck.");
-			System.out.println("4. Quit the program.");
-			System.out.println("--------------------------------------------\n");
-			int userChoice = sc.nextInt();
+			int userChoice = fta.printMenu();
 			switch (userChoice) {
 			case 1: {
 				System.out.println("All Trucks: ");
@@ -95,5 +62,53 @@ public class FoodTruckApp {
 
 		sc.close();
 	}
+	
+	private FoodTruck[] gatherFoodTrucks() {
+		Scanner sc = new Scanner(System.in);
+		
+		FoodTruck[] fullTruckArr = new FoodTruck[5];
+		int lengthFinalArray = 5;
+		
+		for (int i = 0; i < 5; i++) {
+			System.out.print("Enter Food Truck Name: ");
+			String currentTruckName = sc.next();
+			if (currentTruckName.equals("quit")) {
+				lengthFinalArray = i;
+				break;
+			}
 
+			System.out.print("Enter type of food for this Food Truck: ");
+			String currentFoodType = sc.next();
+
+			System.out.print("Enter Food Truck's Rating (1-5): ");
+			int currentTruckRating = sc.nextInt();
+			while (currentTruckRating < 1 || currentTruckRating > 5) {
+				currentTruckRating = sc.nextInt();
+			}
+
+			FoodTruck truck = new FoodTruck(currentTruckName, currentFoodType, currentTruckRating);
+			fullTruckArr[i] = truck;
+		}
+		
+		FoodTruck[] foodTrucks = new FoodTruck[lengthFinalArray];
+		for (int i = 0; i < lengthFinalArray; i++) {
+			foodTrucks[i] = fullTruckArr[i];
+		}
+		return foodTrucks;
+	}
+	
+	private int printMenu() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("\n--------------------------------------------");
+		System.out.println("Please enter a number 1-4 for the following:");
+		System.out.println("1. List all existing food trucks.");
+		System.out.println("2. See the average rating of food trucks.");
+		System.out.println("3. Display the highest-rated food truck.");
+		System.out.println("4. Quit the program.");
+		System.out.println("--------------------------------------------\n");
+		int userChoice = sc.nextInt();
+		return userChoice;
+	}
+	
+	
 }
