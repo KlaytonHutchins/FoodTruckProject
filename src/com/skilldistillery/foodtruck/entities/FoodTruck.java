@@ -38,8 +38,8 @@ public class FoodTruck {
 		truckRating = rating;
 	}
 	public String toString() {
-		String truckInfoString = "ID: " + foodTruckId + "  Name: " + truckName
-				+ "  Type: " + foodType + "  Rating: " + truckRating;
+		String truckInfoString = "ID: " + foodTruckId + "   Name: " + truckName
+				+ "   Type: " + foodType + "   Rating: " + truckRating;
 		return truckInfoString;
 	}
 	

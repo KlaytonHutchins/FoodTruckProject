@@ -40,7 +40,7 @@ public class FoodTruckApp {
 						highestRatedValue = foodTrucks[i].getTruckRating();
 					}
 				}
-				System.out.println("Highest Rated Truck:\n");
+				System.out.println("Highest Rated Truck(s):\n");
 				for (int i = 0; i < foodTrucks.length; i++) {
 					if (foodTrucks[i].getTruckRating() == highestRatedValue) {
 						System.out.println(foodTrucks[i]);
@@ -71,20 +71,21 @@ public class FoodTruckApp {
 		
 		for (int i = 0; i < 5; i++) {
 			System.out.print("Enter Food Truck Name: ");
-			String currentTruckName = sc.next();
+			String currentTruckName = sc.nextLine();
 			if (currentTruckName.equals("quit")) {
 				lengthFinalArray = i;
 				break;
 			}
 
 			System.out.print("Enter type of food for this Food Truck: ");
-			String currentFoodType = sc.next();
+			String currentFoodType = sc.nextLine();
 
 			System.out.print("Enter Food Truck's Rating (1-5): ");
 			int currentTruckRating = sc.nextInt();
 			while (currentTruckRating < 1 || currentTruckRating > 5) {
 				currentTruckRating = sc.nextInt();
 			}
+			sc.nextLine();
 
 			FoodTruck truck = new FoodTruck(currentTruckName, currentFoodType, currentTruckRating);
 			fullTruckArr[i] = truck;
