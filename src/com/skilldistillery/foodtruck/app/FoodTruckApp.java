@@ -23,8 +23,11 @@ public class FoodTruckApp {
 			System.out.print("Enter type of food for this Food Truck: ");
 			String currentFoodType = sc.next();
 
-			System.out.print("Enter Food Truck's Rating: ");
+			System.out.print("Enter Food Truck's Rating (1-5): ");
 			int currentTruckRating = sc.nextInt();
+			while (currentTruckRating < 1 || currentTruckRating > 5) {
+				currentTruckRating = sc.nextInt();
+			}
 
 			FoodTruck truck = new FoodTruck(currentTruckName, currentFoodType, currentTruckRating);
 			fullTruckArr[i] = truck;
@@ -83,7 +86,7 @@ public class FoodTruckApp {
 			}
 		}
 
-//		sc.close();
+		sc.close();
 	}
 
 }
