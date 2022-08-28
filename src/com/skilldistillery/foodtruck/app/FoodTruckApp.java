@@ -8,7 +8,8 @@ public class FoodTruckApp {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-
+		// I created an instance of the food truck app so that i could use non static methods in
+		// this class, to keep main method more readable
 		FoodTruckApp fta = new FoodTruckApp();
 		FoodTruck[] foodTrucks = fta.gatherFoodTrucks();
 		
@@ -32,6 +33,8 @@ public class FoodTruckApp {
 				break;
 			}
 			case 3: {
+				// iterating through the array twice to allow the program to return more than one truck
+				// in the case of multiple trucks have the same highest rating (a tie)
 				int highestRatedIndex = 0;
 				int highestRatedValue = foodTrucks[0].getTruckRating();
 				for (int i = 0; i < foodTrucks.length; i++) {
