@@ -14,3 +14,9 @@ understanding of static and non static objects.
 
 ## Technologies Used
 Java, Eclipse, Git
+
+Email:
+klaytonhutchins@gmail.com
+
+GitHub:
+KlaytonHutchins
