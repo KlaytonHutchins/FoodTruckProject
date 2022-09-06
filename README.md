@@ -19,4 +19,4 @@ Email:
 klaytonhutchins@gmail.com
 
 GitHub:
-github.com/KlaytonHutchins
+www.github.com/KlaytonHutchins
